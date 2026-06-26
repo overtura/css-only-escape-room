@@ -1,7 +1,7 @@
 # AGENTS.md
 
 ## Project Goal
-이 저장소는 HTML/CSS만으로 진행되는 밝은 퍼즐형 escape room이다. self-improving bot은 작은 PR 단위로 퍼즐, 상태 문구, 접근성, fallback을 개선한다.
+이 저장소는 HTML/CSS만으로 진행되는 밝은 퍼즐형 escape room이다. 중앙 maintainer bot은 작은 PR 단위로 퍼즐, 상태 문구, 접근성, fallback을 개선한다.
 
 ## Commands
 - install: `pnpm install`
@@ -9,8 +9,6 @@
 - lint: `pnpm lint`
 - build: `pnpm build`
 - full check: `pnpm check`
-- self-improve context: `pnpm self-improve:context`
-- self-improve guard: `pnpm self-improve:guard`
 
 ## Done Definition
 - 화면 문구는 기본적으로 한국어다.
@@ -21,11 +19,13 @@
 ## Review Guidelines
 - JavaScript state machine을 추가하지 않는다.
 - hidden checkbox/label 연결, door 상태 문구, color-only progress를 우선 점검한다.
-- self-improve 변경은 민감 정보 guard와 `pnpm check` 통과 여부를 먼저 본다.
+- 중앙 maintainer bot 변경은 target profile, deny path, no-JS 제약, `pnpm check` 통과 여부를 먼저 본다.
 
-## Self-Improve Loop Rules
-- 반복 루프는 작은 PR 하나로 끝나야 한다.
-- `self-improvement/backlog.md`의 후보를 우선 활용한다.
+## Central Maintainer Bot Rules
+- 자가 개선 엔진은 이 저장소에 두지 않고 `okorion/self-improving-maintainer-bot` 중앙 control plane에서 실행한다.
+- 이 저장소에는 `maintainer-bot/project.json`, `maintainer-bot/backlog.md`, `maintainer-bot/evals/docs_qa.jsonl`만 target repo 설정으로 둔다.
+- 반복 루프는 작은 PR 하나로 끝나야 하며, `maintainer-bot/backlog.md`의 후보를 우선 활용한다.
+- `.github/workflows/**`, credential, auth/security, infra, migration 성격의 변경은 R3로 취급하고 draft/proposal only로 다룬다.
 - 런타임 JavaScript, 실제 secret, API key는 추가하지 않는다.
 
 ## External Design Tool Rules
