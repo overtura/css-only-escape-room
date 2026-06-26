@@ -20,6 +20,40 @@
         <span>세 가지 단서를 모두 켜면 출구가 열립니다.</span>
       </section>
 
+      <section class="panel progress-board" aria-label="탈출 진행 상태">
+        <div>
+          <h2>탈출 진행판</h2>
+          <p class="objective objective-lamp">현재 목표: 램프를 켜서 책상 위 첫 단서를 밝히세요.</p>
+          <p class="objective objective-key">현재 목표: 밝아진 서랍 아래에서 열쇠를 찾으세요.</p>
+          <p class="objective objective-code">현재 목표: 열린 서랍 안쪽의 암호 조각을 맞추세요.</p>
+          <p class="objective objective-door">현재 목표: 모든 단서가 준비됐습니다. 출구를 확인하세요.</p>
+        </div>
+        <ol class="progress-list" aria-label="퍼즐 단계">
+          <li class="progress-step progress-lamp">
+            <strong>램프</strong>
+            <span class="pending">대기</span>
+            <span class="done">완료</span>
+          </li>
+          <li class="progress-step progress-key">
+            <strong>열쇠</strong>
+            <span class="pending">잠김</span>
+            <span class="ready">가능</span>
+            <span class="done">완료</span>
+          </li>
+          <li class="progress-step progress-code">
+            <strong>암호</strong>
+            <span class="pending">잠김</span>
+            <span class="ready">가능</span>
+            <span class="done">완료</span>
+          </li>
+          <li class="progress-step progress-door">
+            <strong>출구</strong>
+            <span class="pending">잠김</span>
+            <span class="done">열림</span>
+          </li>
+        </ol>
+      </section>
+
       <section class="playfield" aria-label="방 탈출 퍼즐">
         <article class="panel puzzle lamp-card">
           <h2>램프</h2>
