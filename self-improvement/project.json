@@ -2,7 +2,8 @@
   "name": "CSS-Only Escape Room",
   "kind": "html-css-only-puzzle-game",
   "runtime": "Static HTML + CSS + Vite build only",
-  "goal": "CSS 상태 선택자 기반 퍼즐형 no-JS 게임을 한국어로 축적하고 자동 PR로 개선한다.",
+  "language": "ko",
+  "goal": "CSS 상태 선택자 기반 퍼즐형 no-JS 게임을 밝은 puzzle desk 톤으로 축적하고, 자동 PR로 퍼즐, 접근성, fallback을 개선한다.",
   "allowedChangeScope": [
     "index.html",
     "styles.css",
@@ -24,5 +25,9 @@
     ".npmrc",
     "런타임 JavaScript",
     "실제 API key 또는 credential"
+  ],
+  "qualityGates": [
+    "pnpm self-improve:guard",
+    "pnpm check"
   ]
 }
