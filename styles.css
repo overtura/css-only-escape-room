@@ -113,6 +113,29 @@
     background: #f2c14e;
     cursor: pointer;
     font-weight: 800;
+    outline: 2px solid transparent;
+    outline-offset: 3px;
+    transition:
+      box-shadow var(--motion-standard),
+      transform var(--motion-standard);
+  }
+
+  label:hover {
+    box-shadow: 0 8px 18px rgb(208 138 0 / 22%);
+    transform: translateY(-1px);
+  }
+
+  label:active {
+    transform: translateY(0);
+  }
+
+  .room:has(#lamp:focus-visible) .lamp-card label,
+  .room:has(#key:focus-visible) .key-card label,
+  .room:has(#code:focus-visible) .code-card label {
+    outline-color: rgb(0 127 158 / 60%);
+    box-shadow:
+      0 0 0 5px rgb(0 127 158 / 14%),
+      0 8px 18px rgb(208 138 0 / 22%);
   }
 
   .clue-board {
@@ -185,9 +208,21 @@
 
   .key-card,
   .code-card {
-    opacity: 0.52;
     pointer-events: none;
+    border-style: dashed;
     background: rgb(255 255 255 / 64%);
+  }
+
+  .key-card h2,
+  .code-card h2 {
+    color: rgb(24 34 51 / 72%);
+  }
+
+  .key-card label,
+  .code-card label {
+    background: rgb(242 193 78 / 42%);
+    color: rgb(26 22 15 / 68%);
+    cursor: not-allowed;
   }
 
   .opened {
@@ -240,6 +275,23 @@
     display: block;
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .room:has(#lamp:checked) .key-card,
+  .room:has(#lamp:checked):has(#key:checked) .code-card {
+    border-style: solid;
+  }
+
+  .room:has(#lamp:checked) .key-card h2,
+  .room:has(#lamp:checked):has(#key:checked) .code-card h2 {
+    color: var(--color-text);
+  }
+
+  .room:has(#lamp:checked) .key-card label,
+  .room:has(#lamp:checked):has(#key:checked) .code-card label {
+    background: #f2c14e;
+    color: var(--color-primary-ink);
+    cursor: pointer;
   }
 
   .room:has(#key:checked) .key-card,
