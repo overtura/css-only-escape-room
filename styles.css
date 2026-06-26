@@ -1,3 +1,5 @@
+@import './design-system/base.css';
+
 @layer reset, base, room, puzzle;
 
 @layer reset {
@@ -12,11 +14,9 @@
 
 @layer base {
   :root {
-    color: #f5efe4;
-    background: #0e0b12;
-    font-family:
-      Inter, Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      sans-serif;
+    color: var(--color-text);
+    background: var(--color-bg);
+    font-family: var(--font-ui);
   }
 
   body {
@@ -25,17 +25,17 @@
   }
 
   code {
-    color: #ffd36a;
+    color: var(--color-primary);
   }
 }
 
 @layer room {
   .room {
     min-height: 100vh;
-    padding: clamp(20px, 5vw, 56px);
+    padding: var(--space-page);
     background:
-      radial-gradient(circle at 50% 12%, rgba(255, 211, 106, 0.1), transparent 22%),
-      linear-gradient(135deg, #0e0b12, #17111d 48%, #100b14);
+      radial-gradient(circle at 50% 12%, rgb(255 211 106 / 10%), transparent 22%),
+      linear-gradient(135deg, var(--color-bg), var(--color-bg-2) 48%, #100b14);
   }
 
   .state {
@@ -54,7 +54,7 @@
 
   .intro p {
     margin: 0 0 16px;
-    color: #ffd36a;
+    color: var(--color-primary);
     font-weight: 900;
   }
 
@@ -67,7 +67,7 @@
 
   .intro span {
     margin-top: 24px;
-    color: #cbbda8;
+    color: var(--color-muted);
     font-size: 18px;
   }
 
@@ -83,11 +83,11 @@
   .puzzle,
   .door,
   .rules {
-    border: 1px solid rgba(245, 239, 228, 0.16);
-    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-frame);
     padding: 22px;
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-room);
   }
 
   .puzzle h2,
@@ -99,7 +99,7 @@
   .puzzle p,
   .door p,
   .rules p {
-    color: #cbbda8;
+    color: var(--color-muted);
     line-height: 1.65;
   }
 
@@ -107,43 +107,47 @@
     display: inline-grid;
     min-height: 40px;
     place-items: center;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     padding: 0 14px;
-    color: #0e0b12;
-    background: #ffd36a;
+    color: var(--color-primary-ink);
+    background: var(--color-primary);
     cursor: pointer;
     font-weight: 800;
   }
 
   .key-card,
-  .code-card,
-  .opened {
+  .code-card {
     opacity: 0.28;
     pointer-events: none;
   }
 
+  .opened {
+    display: none;
+  }
+
   .room:has(#lamp:checked) .lamp-card {
-    border-color: #ffd36a;
-    box-shadow: 0 0 70px rgba(255, 211, 106, 0.18);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 70px rgb(255 211 106 / 18%);
   }
 
   .room:has(#lamp:checked) .key-card,
   .room:has(#lamp:checked):has(#key:checked) .code-card,
   .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .opened {
+    display: block;
     opacity: 1;
     pointer-events: auto;
   }
 
   .room:has(#key:checked) .key-card,
   .room:has(#code:checked) .code-card {
-    border-color: #8be9ff;
+    border-color: var(--color-found);
   }
 
   .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .door {
-    color: #0e0b12;
+    color: var(--color-primary-ink);
     background:
       radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.9), transparent 30%),
-      #ffd36a;
+      var(--color-primary);
   }
 
   .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .locked {
@@ -155,7 +159,7 @@
   }
 
   details {
-    border-top: 1px solid rgba(245, 239, 228, 0.16);
+    border-top: 1px solid var(--color-border);
     padding: 14px 0;
   }
 
