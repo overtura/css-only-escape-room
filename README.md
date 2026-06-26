@@ -30,6 +30,20 @@ pnpm check
 
 `pnpm check`는 source no-JS lint, Vite build, dist no-JS lint를 순서대로 실행한다. source의 `index.html`/`styles.css`와 build output 모두에서 런타임 JavaScript `<script>` 태그와 inline event handler가 없는지 검사한다.
 
+## Vercel 배포
+- 배포 설정: `vercel.json`
+- framework: Vite
+- build command: `pnpm build`
+- output directory: `dist`
+- production deploy: Vercel CLI 로그인 또는 `VERCEL_TOKEN` 설정 후 `npx vercel --prod --yes`
+
+현재 저장소는 Vercel 정적 배포 설정까지 준비되어 있다. 이 Codex 실행 환경에서는 Vercel CLI/커넥터 인증이 확인되지 않아 production URL 발급은 인증 후 진행한다.
+
+## 최근 업데이트
+- 밝은 톤 CSS-only escape room 디자인 시스템과 퍼즐 진행 UI를 정리했다.
+- 전등, 열쇠, 암호, 출구 상태를 JavaScript 없이 이해하기 쉽게 보강했다.
+- 중앙 maintainer bot은 퍼즐 진행 맥락과 최근 PR 이력을 기준으로 독립적인 개선 후보를 찾는다.
+
 ## 자가 개선
 이 저장소에는 자가 개선 엔진을 두지 않는다. 중앙 control plane인 `okorion/self-improving-maintainer-bot`이 `profiles/overtura/css-only-escape-room.json` profile로 이 저장소를 target repo로 다룬다.
 
