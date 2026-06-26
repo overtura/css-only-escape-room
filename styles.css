@@ -1,0 +1,178 @@
+@layer reset, base, room, puzzle;
+
+@layer reset {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+}
+
+@layer base {
+  :root {
+    color: #f5efe4;
+    background: #0e0b12;
+    font-family:
+      Inter, Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      sans-serif;
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+  }
+
+  code {
+    color: #ffd36a;
+  }
+}
+
+@layer room {
+  .room {
+    min-height: 100vh;
+    padding: clamp(20px, 5vw, 56px);
+    background:
+      radial-gradient(circle at 50% 12%, rgba(255, 211, 106, 0.1), transparent 22%),
+      linear-gradient(135deg, #0e0b12, #17111d 48%, #100b14);
+  }
+
+  .state {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    opacity: 0;
+  }
+
+  .intro {
+    min-height: 48vh;
+    display: grid;
+    align-content: center;
+    max-width: 920px;
+  }
+
+  .intro p {
+    margin: 0 0 16px;
+    color: #ffd36a;
+    font-weight: 900;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(48px, 9vw, 104px);
+    line-height: 0.92;
+    letter-spacing: 0;
+  }
+
+  .intro span {
+    margin-top: 24px;
+    color: #cbbda8;
+    font-size: 18px;
+  }
+
+  .playfield {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+  }
+}
+
+@layer puzzle {
+  .puzzle,
+  .door,
+  .rules {
+    border: 1px solid rgba(245, 239, 228, 0.16);
+    border-radius: 8px;
+    padding: 22px;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+  }
+
+  .puzzle h2,
+  .door h2,
+  .rules h2 {
+    margin: 0;
+  }
+
+  .puzzle p,
+  .door p,
+  .rules p {
+    color: #cbbda8;
+    line-height: 1.65;
+  }
+
+  label {
+    display: inline-grid;
+    min-height: 40px;
+    place-items: center;
+    border-radius: 999px;
+    padding: 0 14px;
+    color: #0e0b12;
+    background: #ffd36a;
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  .key-card,
+  .code-card,
+  .opened {
+    opacity: 0.28;
+    pointer-events: none;
+  }
+
+  .room:has(#lamp:checked) .lamp-card {
+    border-color: #ffd36a;
+    box-shadow: 0 0 70px rgba(255, 211, 106, 0.18);
+  }
+
+  .room:has(#lamp:checked) .key-card,
+  .room:has(#lamp:checked):has(#key:checked) .code-card,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .opened {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .room:has(#key:checked) .key-card,
+  .room:has(#code:checked) .code-card {
+    border-color: #8be9ff;
+  }
+
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .door {
+    color: #0e0b12;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.9), transparent 30%),
+      #ffd36a;
+  }
+
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .locked {
+    display: none;
+  }
+
+  .rules {
+    margin-top: 16px;
+  }
+
+  details {
+    border-top: 1px solid rgba(245, 239, 228, 0.16);
+    padding: 14px 0;
+  }
+
+  summary {
+    cursor: pointer;
+    font-weight: 900;
+  }
+}
+
+@media (max-width: 980px) {
+  .playfield {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .playfield {
+    grid-template-columns: 1fr;
+  }
+}
