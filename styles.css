@@ -115,6 +115,74 @@
     font-weight: 800;
   }
 
+  .clue-board {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+    gap: 18px;
+    align-items: start;
+    margin-bottom: 16px;
+  }
+
+  .clue-board .eyebrow {
+    margin: 0 0 8px;
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 900;
+  }
+
+  .clue-board .clue-status {
+    display: none;
+    margin: 12px 0 0;
+    color: var(--color-text);
+    font-size: 18px;
+    font-weight: 800;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .clue-board .clue-start {
+    display: block;
+  }
+
+  .clue-steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .clue-steps li {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-frame);
+    padding: 10px 12px;
+    background: rgb(255 255 255 / 68%);
+    color: var(--color-muted);
+    font-weight: 800;
+  }
+
+  .clue-steps strong {
+    display: inline-grid;
+    min-inline-size: 54px;
+    min-height: 26px;
+    place-items: center;
+    border-radius: var(--radius-pill);
+    padding: 0 8px;
+    background: rgb(24 34 51 / 8%);
+    color: var(--color-text);
+    font-size: 13px;
+  }
+
+  .clue-steps .complete {
+    display: none;
+  }
+
   .key-card,
   .code-card {
     opacity: 0.52;
@@ -129,6 +197,41 @@
   .room:has(#lamp:checked) .lamp-card {
     border-color: var(--color-primary);
     box-shadow: 0 18px 60px rgb(208 138 0 / 22%);
+  }
+
+  .room:has(#lamp:checked) .clue-start,
+  .room:has(#lamp:checked):has(#key:checked) .clue-lamp,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .clue-key {
+    display: none;
+  }
+
+  .room:has(#lamp:checked) .clue-lamp,
+  .room:has(#lamp:checked):has(#key:checked) .clue-key,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .clue-code {
+    display: block;
+  }
+
+  .room:has(#lamp:checked) .step-lamp,
+  .room:has(#lamp:checked):has(#key:checked) .step-key,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .step-code,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .step-door {
+    border-color: rgb(0 127 158 / 34%);
+    background: linear-gradient(135deg, rgb(232 255 244 / 86%), rgb(255 243 196 / 72%));
+    color: var(--color-text);
+  }
+
+  .room:has(#lamp:checked) .step-lamp .pending,
+  .room:has(#lamp:checked):has(#key:checked) .step-key .pending,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .step-code .pending,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .step-door .pending {
+    display: none;
+  }
+
+  .room:has(#lamp:checked) .step-lamp .complete,
+  .room:has(#lamp:checked):has(#key:checked) .step-key .complete,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .step-code .complete,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .step-door .complete {
+    display: inline;
   }
 
   .room:has(#lamp:checked) .key-card,
@@ -175,10 +278,18 @@
   .playfield {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .clue-board {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 620px) {
   .playfield {
+    grid-template-columns: 1fr;
+  }
+
+  .clue-steps {
     grid-template-columns: 1fr;
   }
 }
