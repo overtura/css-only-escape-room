@@ -4,7 +4,7 @@
 
 ## 운영 검증
 - 모든 변경은 `pnpm check`를 통과해야 한다.
-- 자동 merge 기본값은 꺼져 있다.
+- 무인 병합은 기본적으로 사용하지 않는다.
 - `.github/workflows/**`, credential, auth/security, infra, migration 변경은 R3로 취급하고 draft/proposal only로 다룬다.
 
 ## R0 Report
