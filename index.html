@@ -20,6 +20,35 @@
         <span>세 가지 단서를 모두 켜면 출구가 열립니다.</span>
       </section>
 
+      <section class="panel clue-board" aria-label="탈출 진행 현황">
+        <div>
+          <p class="eyebrow">단서 수첩</p>
+          <h2>지금 필요한 행동</h2>
+          <p class="clue-status clue-start">램프를 켜서 책상 위 첫 단서를 밝히세요.</p>
+          <p class="clue-status clue-lamp">열쇠 단서가 열렸습니다. 서랍 아래를 확인하세요.</p>
+          <p class="clue-status clue-key">암호 단서가 열렸습니다. 마지막 숫자 조각을 맞추세요.</p>
+          <p class="clue-status clue-code">세 단서를 모두 확인했습니다. 출구 패널을 확인하세요.</p>
+        </div>
+        <ol class="clue-steps" aria-label="단서 완료 단계">
+          <li class="step-lamp">
+            <span>램프</span>
+            <strong><span class="pending">대기</span><span class="complete">완료</span></strong>
+          </li>
+          <li class="step-key">
+            <span>열쇠</span>
+            <strong><span class="pending">대기</span><span class="complete">완료</span></strong>
+          </li>
+          <li class="step-code">
+            <span>암호</span>
+            <strong><span class="pending">대기</span><span class="complete">완료</span></strong>
+          </li>
+          <li class="step-door">
+            <span>출구</span>
+            <strong><span class="pending">잠김</span><span class="complete">열림</span></strong>
+          </li>
+        </ol>
+      </section>
+
       <section class="playfield" aria-label="방 탈출 퍼즐">
         <article class="panel puzzle lamp-card">
           <h2>램프</h2>
