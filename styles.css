@@ -103,6 +103,67 @@
     line-height: 1.65;
   }
 
+  .progress-board {
+    margin-bottom: 16px;
+  }
+
+  .progress-board h2 {
+    margin-bottom: 14px;
+    font-size: 20px;
+  }
+
+  .progress-board ol {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .progress-item {
+    display: flex;
+    gap: 12px;
+    min-block-size: 86px;
+    padding: 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-frame);
+    background: rgb(248 251 255 / 72%);
+  }
+
+  .progress-mark {
+    display: grid;
+    flex: 0 0 32px;
+    inline-size: 32px;
+    block-size: 32px;
+    place-items: center;
+    border-radius: var(--radius-frame);
+    color: var(--color-muted);
+    background: rgb(255 255 255 / 86%);
+    font-weight: 900;
+  }
+
+  .progress-item strong,
+  .progress-item small {
+    display: block;
+  }
+
+  .progress-item strong {
+    color: var(--color-text);
+  }
+
+  .progress-item small {
+    margin-top: 6px;
+    color: var(--color-muted);
+    line-height: 1.45;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .progress-item .progress-done {
+    display: none;
+  }
+
   label {
     display: inline-grid;
     min-height: 40px;
@@ -129,6 +190,37 @@
   .room:has(#lamp:checked) .lamp-card {
     border-color: var(--color-primary);
     box-shadow: 0 18px 60px rgb(208 138 0 / 22%);
+  }
+
+  .room:has(#lamp:checked) .lamp-step,
+  .room:has(#lamp:checked):has(#key:checked) .key-step,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .code-step,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .door-step {
+    border-color: rgb(0 127 158 / 34%);
+    background: linear-gradient(135deg, rgb(255 255 255 / 92%), rgb(226 250 255 / 68%));
+  }
+
+  .room:has(#lamp:checked) .lamp-step .progress-mark,
+  .room:has(#lamp:checked):has(#key:checked) .key-step .progress-mark,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .code-step .progress-mark,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .door-step .progress-mark {
+    color: #ffffff;
+    background: var(--color-found);
+  }
+
+  .room:has(#lamp:checked) .lamp-step .progress-pending,
+  .room:has(#lamp:checked):has(#key:checked) .key-step .progress-pending,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .code-step .progress-pending,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .door-step .progress-pending {
+    display: none;
+  }
+
+  .room:has(#lamp:checked) .lamp-step .progress-done,
+  .room:has(#lamp:checked):has(#key:checked) .key-step .progress-done,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .code-step .progress-done,
+  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .door-step .progress-done {
+    display: block;
+    color: #17465c;
   }
 
   .room:has(#lamp:checked) .key-card,
@@ -172,12 +264,14 @@
 }
 
 @media (max-width: 980px) {
+  .progress-board ol,
   .playfield {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 620px) {
+  .progress-board ol,
   .playfield {
     grid-template-columns: 1fr;
   }
