@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="JavaScript 없이 HTML과 CSS만으로 진행되는 퍼즐형 escape room" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230e0b12'/%3E%3Cpath d='M20 28h24v22H20z' fill='%23ffd36a'/%3E%3Cpath d='M24 28v-6a8 8 0 0 1 16 0v6' fill='none' stroke='%238be9ff' stroke-width='5'/%3E%3C/svg%3E" />
+    <meta name="description" content="JavaScript 없이 HTML과 CSS만으로 진행되는 밝은 퍼즐형 escape room" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f8fbff'/%3E%3Cpath d='M20 28h24v22H20z' fill='%23f2c14e'/%3E%3Cpath d='M24 28v-6a8 8 0 0 1 16 0v6' fill='none' stroke='%23007f9e' stroke-width='5'/%3E%3C/svg%3E" />
     <title>CSS-Only Escape Room</title>
     <link rel="stylesheet" href="/styles.css" />
   </head>
@@ -16,26 +16,26 @@
 
       <section class="intro">
         <p>CSS-Only Escape Room</p>
-        <h1>스크립트 없이 문을 여는 방</h1>
+        <h1>스크립트 없이 문을 여는 밝은 퍼즐 룸</h1>
         <span>세 가지 단서를 모두 켜면 출구가 열립니다.</span>
       </section>
 
       <section class="playfield" aria-label="방 탈출 퍼즐">
         <article class="puzzle lamp-card">
-          <h2>전등</h2>
-          <p>어두운 방에서는 첫 단서가 보이지 않습니다.</p>
-          <label for="lamp">전등 켜기</label>
+          <h2>램프</h2>
+          <p>테이블 위 첫 단서를 밝히면 다음 카드가 활성화됩니다.</p>
+          <label for="lamp">램프 켜기</label>
         </article>
 
         <article class="puzzle key-card">
           <h2>열쇠</h2>
-          <p>전등을 켜면 책상 아래의 작은 열쇠가 보입니다.</p>
+          <p>램프가 켜지면 서랍 아래의 작은 열쇠를 찾을 수 있습니다.</p>
           <label for="key">열쇠 줍기</label>
         </article>
 
         <article class="puzzle code-card">
           <h2>암호</h2>
-          <p>열쇠로 서랍을 열면 마지막 숫자 조각이 나옵니다.</p>
+          <p>열쇠로 서랍을 열면 마지막 숫자 조각이 나타납니다.</p>
           <label for="code">암호 맞추기</label>
         </article>
 
@@ -54,7 +54,7 @@
         </details>
         <details name="rules">
           <summary>자동화</summary>
-          <p>self-improve workflow가 새 퍼즐, 접근성 개선, CSS fallback을 자동 PR로 제안합니다.</p>
+          <p>self-improve workflow가 다음 퍼즐, 접근성 개선, CSS fallback을 자동 PR로 제안합니다.</p>
         </details>
       </section>
     </main>
