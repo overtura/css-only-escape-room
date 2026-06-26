@@ -86,7 +86,7 @@
 }
 
 @layer puzzle {
-  :is(.puzzle, .door, .rules) {
+  .panel {
     border: 1px solid var(--color-border);
     border-radius: var(--radius-frame);
     padding: 22px;
@@ -94,11 +94,11 @@
     box-shadow: var(--shadow-room);
   }
 
-  :is(.puzzle, .door, .rules) h2 {
+  .panel h2 {
     margin: 0;
   }
 
-  :is(.puzzle, .door, .rules) p {
+  .panel p {
     color: var(--color-muted);
     line-height: 1.65;
   }
