@@ -177,6 +177,9 @@
   }
 
   .clue-steps li {
+    --step-pending-display: inline;
+    --step-complete-display: none;
+
     display: flex;
     min-height: 44px;
     align-items: center;
@@ -202,8 +205,12 @@
     font-size: 13px;
   }
 
+  .clue-steps .pending {
+    display: var(--step-pending-display);
+  }
+
   .clue-steps .complete {
-    display: none;
+    display: var(--step-complete-display);
   }
 
   .key-card,
@@ -250,23 +257,12 @@
   .room:has(#lamp:checked):has(#key:checked) .step-key,
   .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .step-code,
   .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .step-door {
+    --step-pending-display: none;
+    --step-complete-display: inline;
+
     border-color: rgb(0 127 158 / 34%);
     background: linear-gradient(135deg, rgb(232 255 244 / 86%), rgb(255 243 196 / 72%));
     color: var(--color-text);
-  }
-
-  .room:has(#lamp:checked) .step-lamp .pending,
-  .room:has(#lamp:checked):has(#key:checked) .step-key .pending,
-  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .step-code .pending,
-  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .step-door .pending {
-    display: none;
-  }
-
-  .room:has(#lamp:checked) .step-lamp .complete,
-  .room:has(#lamp:checked):has(#key:checked) .step-key .complete,
-  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .step-code .complete,
-  .room:has(#lamp:checked):has(#key:checked):has(#code:checked) .step-door .complete {
-    display: inline;
   }
 
   .room:has(#lamp:checked) .key-card,
